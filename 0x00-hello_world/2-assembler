@@ -1,1 +1,8 @@
 
+
+#!/bin/bash
+
+if  $# -le 1 
+then 
+        echo "Error: Give input C file and output assembly file names" 
+        exit 1; 
