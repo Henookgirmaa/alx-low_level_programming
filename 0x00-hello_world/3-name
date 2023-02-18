@@ -1,1 +1,26 @@
+#!/bin/bash
+#Script that compiles a C file and creates an executable with the name cisfun
 
+#Checking if the user has supplied a C file as an argument. 
+if  -z "$1" 
+ then 
+   echo "No C file provided" 
+ exit 1 #error code if no argument is provided 
+fi
+
+CFILE="$1" #Initialising the CFILE variable, so that it can be used in the next conditional line. 
+  
+#Cehcking if the argument provided is indeed a .c file.  If not, exit.  
+if [ "${CFILE##*.}" != "c" ]   #This line will check to see if the suffix of the filename being passed is 'c'. If not, exit with error code 2. 
+
+ then   
+
+    echo "$CFILE is not a valid filename" 
+
+    exit 2 #error code 2 if argument provided is valid but isn't a .c file. 
+
+ fi 
+
+ gcc $CFILE -o cisfun #Compiling the C source file into an executable named cisfun. The '-o' option will create an ojbect with this name.
+
+ echo "executable created: cisfun"
