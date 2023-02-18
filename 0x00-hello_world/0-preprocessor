@@ -1,0 +1,9 @@
+#!/bin/bash
+
+filename="$1"
+if  -z "$filename" 
+then 
+  echo "Error: No filename provided"
+  exit 1
+fi
+cpp $filename -o output.txt
